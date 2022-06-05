@@ -1,6 +1,6 @@
 name: animated_gradient
 description: plugin to create animated gradient background with muliple color in flutter project
-version: 0.0.12
+version: 0.0.2
 homepage: https://github.com/bibek-ranjan-saha/animated_gradient.git
 
 environment:
