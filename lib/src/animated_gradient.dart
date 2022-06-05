@@ -41,10 +41,10 @@ class _AnimatedGradientState extends State<AnimatedGradient> {
   int index = 0;
 
   /// {@macro AnimatedGradient.bottomColor}
-  Color bottomColor = Colors.red;
+  late Color bottomColor;
 
   /// {@macro AnimatedGradient.topColor}
-  Color topColor = Colors.yellow;
+  late Color topColor;
 
   /// {@macro AnimatedGradient.begin}
   Alignment begin = Alignment.bottomLeft;
@@ -52,16 +52,15 @@ class _AnimatedGradientState extends State<AnimatedGradient> {
   /// {@macro AnimatedGradient.end}
   Alignment end = Alignment.topRight;
 
-  /// {@macro AnimatedGradient.List<Color>[colorList]}
-  late List<Color> colorList;
-
-  /// {@macro AnimatedGradient.child}
-  late Widget child;
-
   @override
   void initState() {
-    colorList = widget.colors;
-    child = widget.child ?? const SizedBox();
+    /// initializing the starting colors
+    /// top color
+    topColor = widget.colors.first;
+
+    /// bottom color
+    bottomColor = widget.colors.last;
+
     super.initState();
   }
 
@@ -72,7 +71,7 @@ class _AnimatedGradientState extends State<AnimatedGradient> {
       () {
         setState(
           () {
-            bottomColor = Colors.blue;
+            bottomColor = (widget.colors..shuffle()).first;
           },
         );
       },
@@ -85,8 +84,8 @@ class _AnimatedGradientState extends State<AnimatedGradient> {
           () {
             index = index + 1;
             // animate the color
-            bottomColor = colorList[index % colorList.length];
-            topColor = colorList[(index + 1) % colorList.length];
+            bottomColor = widget.colors[index % widget.colors.length];
+            topColor = widget.colors[(index + 1) % widget.colors.length];
 
             // animate the alignment
             begin = alignmentList[index % alignmentList.length];
@@ -98,7 +97,7 @@ class _AnimatedGradientState extends State<AnimatedGradient> {
         gradient: LinearGradient(
             begin: begin, end: end, colors: [bottomColor, topColor]),
       ),
-      child: child,
+      child: widget.child,
     );
   }
 }
