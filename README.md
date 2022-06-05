@@ -31,7 +31,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {  
     return Scaffold(  
       body: AnimatedGradient(  
-        child: const Text("Done!",style : TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.w700)),  
+        child: const Text("Done!",
+          style : TextStyle(
+            color: Colors.white,
+            fontSize: 50,
+            fontWeight: FontWeight.w700,
+          ),
+        ),  
       ),  
     );  
   }  
