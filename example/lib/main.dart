@@ -12,10 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'AnimatedGradient Demo',
-      theme: ThemeData(
-        useMaterial3: true,
-        primarySwatch: Colors.blueGrey
-      ),
+      theme: ThemeData(useMaterial3: true, primarySwatch: Colors.blueGrey),
       home: const MyHomePage(title: 'AnimatedGradient Demo Page'),
     );
   }

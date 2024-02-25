@@ -26,7 +26,6 @@ class AnimatedGradient extends StatefulWidget {
 }
 
 class _AnimatedGradientState extends State<AnimatedGradient> {
-
   /// {@macro AnimatedGradient.alignmentList}
   List<Alignment> alignmentList = [
     Alignment.bottomLeft,
